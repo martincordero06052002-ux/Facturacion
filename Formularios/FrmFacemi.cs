@@ -70,6 +70,11 @@ namespace FacturacionDAM.Formularios
 
                 PrepararBindingLineas();
                 RecalcularTotales();
+
+                // EVENTOS PARA ACTUALIZAR TOTALES EN TIEMPO REAL Y DOBLE CLIC
+                chkRetencion.CheckedChanged += (s, ev) => RecalcularTotales();
+                numTipoRet.ValueChanged += (s, ev) => RecalcularTotales();
+                dgLineasFactura.CellMouseDoubleClick += dgLineasFactura_CellMouseDoubleClick;
             }
             catch (Exception ex)
             {
@@ -86,6 +91,11 @@ namespace FacturacionDAM.Formularios
                 fechaFactura.DataBindings.Clear();
                 _bsFactura.CancelEdit();
             }
+        }
+
+        private void dgLineasFactura_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            tsBtnEdit_Click(sender, e);
         }
 
         #endregion
@@ -351,9 +361,10 @@ namespace FacturacionDAM.Formularios
                     cuotaSum += fila.Field<decimal>("cuota");
                 }
             }
-            decimal total = baseSum + cuotaSum;
+
             decimal tipoRet = chkRetencion.Checked ? numTipoRet.Value : 0;
             decimal retencion = Math.Round(baseSum * (tipoRet / 100), 2);
+            decimal total = baseSum + cuotaSum - retencion;
 
             if (_bsFactura.Current is DataRowView row)
             {

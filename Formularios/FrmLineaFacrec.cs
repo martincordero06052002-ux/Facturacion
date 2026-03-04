@@ -38,6 +38,12 @@ namespace FacturacionDAM.Formularios
             SeleccionarProductoSiEdicion();
             InitLineaFactura();
             RecalcularLinea();
+
+            // EVENTOS PARA ACTUALIZAR EN TIEMPO REAL
+            // Cuando cambie cualquier valor numérico, se recalcula automáticamente
+            numCantidad.ValueChanged += (s, ev) => RecalcularLinea();
+            numPrecio.ValueChanged += (s, ev) => RecalcularLinea();
+            numTipoIva.ValueChanged += (s, ev) => RecalcularLinea();
         }
 
         // 1. Botón de "Trasladar datos del producto"
@@ -166,6 +172,9 @@ namespace FacturacionDAM.Formularios
                 numTipoIva.Value = 0;
 
             txtDescripcion.Text = row["descripcion"].ToString();
+
+            // RecalcularLinea() se ejecutará automáticamente por los eventos ValueChanged,
+            // pero lo dejamos aquí por si el texto fue el único cambio.
             RecalcularLinea();
         }
 

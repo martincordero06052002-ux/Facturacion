@@ -68,6 +68,9 @@
             toolStripSeparator5 = new ToolStripSeparator();
             toolStripLabel1 = new ToolStripLabel();
             tsComboYear = new ToolStripComboBox();
+            tsLbTotalBase = new ToolStripStatusLabel();
+            tsLbTotalCuota = new ToolStripStatusLabel();
+            tsLbTotalRetencion = new ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)splitContainerFacemi).BeginInit();
             splitContainerFacemi.Panel1.SuspendLayout();
             splitContainerFacemi.Panel2.SuspendLayout();
@@ -229,7 +232,7 @@
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
-            statusStrip1.Items.AddRange(new ToolStripItem[] { tsLbNumReg, tsLbStatus, tsLbTotalImporte });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { tsLbNumReg, tsLbStatus, tsLbTotalBase, tsLbTotalCuota, tsLbTotalRetencion, tsLbTotalImporte });
             statusStrip1.Location = new Point(0, 1);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 20, 0);
@@ -462,6 +465,24 @@
             tsComboYear.Size = new Size(75, 33);
             tsComboYear.SelectedIndexChanged += tsComboYear_SelectedIndexChanged;
             // 
+            // tsLbTotalBase
+            // 
+            tsLbTotalBase.Name = "tsLbTotalBase";
+            tsLbTotalBase.Size = new Size(179, 29);
+            tsLbTotalBase.Text = "toolStripStatusLabel1";
+            // 
+            // tsLbTotalCuota
+            // 
+            tsLbTotalCuota.Name = "tsLbTotalCuota";
+            tsLbTotalCuota.Size = new Size(179, 29);
+            tsLbTotalCuota.Text = "toolStripStatusLabel1";
+            // 
+            // tsLbTotalRetencion
+            // 
+            tsLbTotalRetencion.Name = "tsLbTotalRetencion";
+            tsLbTotalRetencion.Size = new Size(179, 29);
+            tsLbTotalRetencion.Text = "toolStripStatusLabel1";
+            // 
             // FrmBrowFacemi
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -535,5 +556,8 @@
         private ToolStripMenuItem tsMnInfFacSinRet;
         private ToolStripMenuItem tsMnInfFacConRet;
         private ToolStripButton toolStripButton1;
+        private ToolStripStatusLabel tsLbTotalBase;
+        private ToolStripStatusLabel tsLbTotalCuota;
+        private ToolStripStatusLabel tsLbTotalRetencion;
     }
 }

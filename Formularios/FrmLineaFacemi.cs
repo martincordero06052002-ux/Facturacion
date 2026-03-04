@@ -48,6 +48,12 @@ namespace FacturacionDAM.Formularios
             InitLineaFactura();
 
             RecalcularLinea();
+
+            // EVENTOS PARA ACTUALIZAR EN TIEMPO REAL
+            // Cuando cambie cualquier valor numérico, se recalcula automáticamente
+            numCantidad.ValueChanged += (s, ev) => RecalcularLinea();
+            numPrecio.ValueChanged += (s, ev) => RecalcularLinea();
+            numTipoIva.ValueChanged += (s, ev) => RecalcularLinea();
         }
 
         private void BtnProducto_Click(object sender, EventArgs e)
@@ -225,6 +231,8 @@ namespace FacturacionDAM.Formularios
             // Descripción
             txtDescripcion.Text = row["descripcion"].ToString();
 
+            // El recálculo ya se lanza automáticamente gracias a los eventos ValueChanged,
+            // pero lo dejamos por seguridad extra
             RecalcularLinea();
         }
 

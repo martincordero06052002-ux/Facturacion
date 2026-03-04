@@ -455,20 +455,23 @@ namespace FacturacionDAM.Formularios
         /// </summary>
         private void CalcularTotalFacturas()
         {
-            decimal totalSum = 0;
-
+            decimal sumBase = 0, sumCuota = 0, sumRet = 0, sumTotal = 0;
             if (_tablaFacturas != null && _tablaFacturas.LaTabla != null)
             {
                 foreach (DataRow row in _tablaFacturas.LaTabla.Rows)
                 {
-                    if (row["total"] != DBNull.Value)
-                    {
-                        totalSum += Convert.ToDecimal(row["total"]);
-                    }
+                    if (row["base"] != DBNull.Value) sumBase += Convert.ToDecimal(row["base"]);
+                    if (row["cuota"] != DBNull.Value) sumCuota += Convert.ToDecimal(row["cuota"]);
+                    if (row["retencion"] != DBNull.Value) sumRet += Convert.ToDecimal(row["retencion"]);
+                    if (row["total"] != DBNull.Value) sumTotal += Convert.ToDecimal(row["total"]);
                 }
             }
 
-            tsLbTotalImporte.Text = $" | Total: {totalSum:C2}";
+            // Actualizamos las nuevas etiquetas que has creado en el diseño
+            if (tsLbTotalBase != null) tsLbTotalBase.Text = $" | Base: {sumBase:C2}";
+            if (tsLbTotalCuota != null) tsLbTotalCuota.Text = $" | Cuota: {sumCuota:C2}";
+            if (tsLbTotalRetencion != null) tsLbTotalRetencion.Text = $" | Retención: {sumRet:C2}";
+            if (tsLbTotalImporte != null) tsLbTotalImporte.Text = $" | Total: {sumTotal:C2}";
         }
 
         #endregion

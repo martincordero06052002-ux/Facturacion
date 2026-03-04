@@ -61,6 +61,9 @@
             pnClientes = new Panel();
             pnMenu = new Panel();
             splitContainerFacemi = new SplitContainer();
+            tsLbTotalBase = new ToolStripStatusLabel();
+            tsLbTotalCuota = new ToolStripStatusLabel();
+            tsLbTotalRetencion = new ToolStripStatusLabel();
             tsHerramientas.SuspendLayout();
             statusStrip1.SuspendLayout();
             pnStatus.SuspendLayout();
@@ -82,14 +85,14 @@
             tsComboYear.BackColor = Color.Azure;
             tsComboYear.DropDownStyle = ComboBoxStyle.DropDownList;
             tsComboYear.Name = "tsComboYear";
-            tsComboYear.Size = new Size(75, 27);
+            tsComboYear.Size = new Size(105, 33);
             tsComboYear.SelectedIndexChanged += tsComboYear_SelectedIndexChanged;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Margin = new Padding(5, 0, 20, 0);
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(6, 27);
+            toolStripSeparator4.Size = new Size(6, 33);
             // 
             // tsBtnExportXML
             // 
@@ -97,7 +100,7 @@
             tsBtnExportXML.Image = (Image)resources.GetObject("tsBtnExportXML.Image");
             tsBtnExportXML.ImageTransparentColor = Color.Magenta;
             tsBtnExportXML.Name = "tsBtnExportXML";
-            tsBtnExportXML.Size = new Size(24, 24);
+            tsBtnExportXML.Size = new Size(34, 28);
             tsBtnExportXML.Text = "toolStripButton1";
             tsBtnExportXML.ToolTipText = "Exportar a formato XML";
             tsBtnExportXML.Click += tsBtnExportXML_Click;
@@ -108,7 +111,7 @@
             tsBtnExportCSV.Image = (Image)resources.GetObject("tsBtnExportCSV.Image");
             tsBtnExportCSV.ImageTransparentColor = Color.Magenta;
             tsBtnExportCSV.Name = "tsBtnExportCSV";
-            tsBtnExportCSV.Size = new Size(24, 24);
+            tsBtnExportCSV.Size = new Size(34, 28);
             tsBtnExportCSV.Text = "toolStripButton1";
             tsBtnExportCSV.ToolTipText = "Exportar a formato CSV";
             tsBtnExportCSV.Click += tsBtnExportCSV_Click;
@@ -117,7 +120,7 @@
             // 
             toolStripSeparator3.Margin = new Padding(5, 0, 5, 0);
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 27);
+            toolStripSeparator3.Size = new Size(6, 33);
             // 
             // tsBtnLast
             // 
@@ -125,7 +128,7 @@
             tsBtnLast.Image = (Image)resources.GetObject("tsBtnLast.Image");
             tsBtnLast.ImageTransparentColor = Color.Magenta;
             tsBtnLast.Name = "tsBtnLast";
-            tsBtnLast.Size = new Size(24, 24);
+            tsBtnLast.Size = new Size(34, 28);
             tsBtnLast.Text = "Último registro";
             tsBtnLast.Click += tsBtnLast_Click;
             // 
@@ -135,7 +138,7 @@
             tsBtnNext.Image = (Image)resources.GetObject("tsBtnNext.Image");
             tsBtnNext.ImageTransparentColor = Color.Magenta;
             tsBtnNext.Name = "tsBtnNext";
-            tsBtnNext.Size = new Size(24, 24);
+            tsBtnNext.Size = new Size(34, 28);
             tsBtnNext.Text = "Siguiente registro";
             tsBtnNext.Click += tsBtnNext_Click;
             // 
@@ -145,7 +148,7 @@
             tsBtnPrev.Image = (Image)resources.GetObject("tsBtnPrev.Image");
             tsBtnPrev.ImageTransparentColor = Color.Magenta;
             tsBtnPrev.Name = "tsBtnPrev";
-            tsBtnPrev.Size = new Size(24, 24);
+            tsBtnPrev.Size = new Size(34, 28);
             tsBtnPrev.Text = "Registro anterior";
             tsBtnPrev.Click += tsBtnPrev_Click;
             // 
@@ -155,7 +158,7 @@
             tsBtnFirst.Image = (Image)resources.GetObject("tsBtnFirst.Image");
             tsBtnFirst.ImageTransparentColor = Color.Magenta;
             tsBtnFirst.Name = "tsBtnFirst";
-            tsBtnFirst.Size = new Size(24, 24);
+            tsBtnFirst.Size = new Size(34, 28);
             tsBtnFirst.Text = "Primer registro";
             tsBtnFirst.Click += tsBtnFirst_Click;
             // 
@@ -163,7 +166,7 @@
             // 
             toolStripSeparator2.Margin = new Padding(5, 0, 5, 0);
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 27);
+            toolStripSeparator2.Size = new Size(6, 33);
             // 
             // tsBtnDelete
             // 
@@ -171,7 +174,7 @@
             tsBtnDelete.Image = (Image)resources.GetObject("tsBtnDelete.Image");
             tsBtnDelete.ImageTransparentColor = Color.Magenta;
             tsBtnDelete.Name = "tsBtnDelete";
-            tsBtnDelete.Size = new Size(24, 24);
+            tsBtnDelete.Size = new Size(34, 28);
             tsBtnDelete.Text = "Eliminar registro";
             tsBtnDelete.Click += tsBtnDelete_Click;
             // 
@@ -179,7 +182,7 @@
             // 
             toolStripSeparator1.Margin = new Padding(5, 0, 5, 0);
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 27);
+            toolStripSeparator1.Size = new Size(6, 33);
             // 
             // tsBtnEdit
             // 
@@ -187,7 +190,7 @@
             tsBtnEdit.Image = (Image)resources.GetObject("tsBtnEdit.Image");
             tsBtnEdit.ImageTransparentColor = Color.Magenta;
             tsBtnEdit.Name = "tsBtnEdit";
-            tsBtnEdit.Size = new Size(24, 24);
+            tsBtnEdit.Size = new Size(34, 28);
             tsBtnEdit.Text = "Editar registro";
             tsBtnEdit.Click += tsBtnEdit_Click;
             // 
@@ -197,14 +200,14 @@
             tsBtnNew.Image = (Image)resources.GetObject("tsBtnNew.Image");
             tsBtnNew.ImageTransparentColor = Color.Magenta;
             tsBtnNew.Name = "tsBtnNew";
-            tsBtnNew.Size = new Size(24, 24);
+            tsBtnNew.Size = new Size(34, 28);
             tsBtnNew.Text = "Nuevo registro";
             tsBtnNew.Click += tsBtnNew_Click;
             // 
             // toolStripLabel1
             // 
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(35, 24);
+            toolStripLabel1.Size = new Size(54, 28);
             toolStripLabel1.Text = "Año: ";
             // 
             // tsHerramientas
@@ -213,8 +216,8 @@
             tsHerramientas.Items.AddRange(new ToolStripItem[] { tsBtnNew, tsBtnEdit, toolStripSeparator1, tsBtnDelete, toolStripSeparator2, tsBtnFirst, tsBtnPrev, tsBtnNext, tsBtnLast, toolStripSeparator3, tsBtnExportCSV, tsBtnExportXML, toolStripSeparator4, toolStripLabel1, tsComboYear });
             tsHerramientas.Location = new Point(0, 0);
             tsHerramientas.Name = "tsHerramientas";
-            tsHerramientas.Padding = new Padding(0, 0, 2, 0);
-            tsHerramientas.Size = new Size(561, 27);
+            tsHerramientas.Padding = new Padding(0, 0, 3, 0);
+            tsHerramientas.Size = new Size(803, 33);
             tsHerramientas.TabIndex = 0;
             tsHerramientas.Text = "toolStrip1";
             // 
@@ -222,28 +225,29 @@
             // 
             tsLbTotalImporte.BorderSides = ToolStripStatusLabelBorderSides.Left;
             tsLbTotalImporte.Name = "tsLbTotalImporte";
-            tsLbTotalImporte.Size = new Size(73, 19);
+            tsLbTotalImporte.Size = new Size(111, 29);
             tsLbTotalImporte.Text = "Total: 0,00 €";
             // 
             // tsLbStatus
             // 
             tsLbStatus.Margin = new Padding(10, 3, 0, 2);
             tsLbStatus.Name = "tsLbStatus";
-            tsLbStatus.Size = new Size(0, 19);
+            tsLbStatus.Size = new Size(0, 31);
             // 
             // tsLbNumReg
             // 
             tsLbNumReg.Name = "tsLbNumReg";
-            tsLbNumReg.Size = new Size(88, 19);
+            tsLbNumReg.Size = new Size(136, 29);
             tsLbNumReg.Text = "Nº de registros:";
             // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
-            statusStrip1.Items.AddRange(new ToolStripItem[] { tsLbNumReg, tsLbStatus, tsLbTotalImporte });
-            statusStrip1.Location = new Point(0, -2);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { tsLbNumReg, tsLbStatus, tsLbTotalBase, tsLbTotalCuota, tsLbTotalRetencion, tsLbTotalImporte });
+            statusStrip1.Location = new Point(0, 1);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(561, 24);
+            statusStrip1.Padding = new Padding(1, 0, 20, 0);
+            statusStrip1.Size = new Size(803, 36);
             statusStrip1.TabIndex = 0;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -251,9 +255,10 @@
             // 
             pnStatus.Controls.Add(statusStrip1);
             pnStatus.Dock = DockStyle.Bottom;
-            pnStatus.Location = new Point(0, 417);
+            pnStatus.Location = new Point(0, 696);
+            pnStatus.Margin = new Padding(4, 5, 4, 5);
             pnStatus.Name = "pnStatus";
-            pnStatus.Size = new Size(561, 22);
+            pnStatus.Size = new Size(803, 37);
             pnStatus.TabIndex = 2;
             // 
             // lbHeadFacemi
@@ -262,8 +267,9 @@
             lbHeadFacemi.Dock = DockStyle.Fill;
             lbHeadFacemi.Font = new Font("Segoe UI", 12F);
             lbHeadFacemi.Location = new Point(0, 0);
+            lbHeadFacemi.Margin = new Padding(4, 0, 4, 0);
             lbHeadFacemi.Name = "lbHeadFacemi";
-            lbHeadFacemi.Size = new Size(561, 42);
+            lbHeadFacemi.Size = new Size(803, 70);
             lbHeadFacemi.TabIndex = 0;
             lbHeadFacemi.Text = "Facturas del proveedor seleccionado, en el año seleccionado";
             lbHeadFacemi.TextAlign = ContentAlignment.MiddleCenter;
@@ -282,13 +288,14 @@
             dgFacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgFacturas.Dock = DockStyle.Fill;
-            dgFacturas.Location = new Point(0, 44);
+            dgFacturas.Location = new Point(0, 73);
+            dgFacturas.Margin = new Padding(4, 5, 4, 5);
             dgFacturas.MultiSelect = false;
             dgFacturas.Name = "dgFacturas";
             dgFacturas.ReadOnly = true;
             dgFacturas.RowHeadersWidth = 51;
             dgFacturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgFacturas.Size = new Size(561, 345);
+            dgFacturas.Size = new Size(803, 576);
             dgFacturas.TabIndex = 0;
             dgFacturas.CellMouseDoubleClick += dgFacturas_CellMouseDoubleClick;
             // 
@@ -296,9 +303,10 @@
             // 
             pnHeadFacemi.Controls.Add(lbHeadFacemi);
             pnHeadFacemi.Dock = DockStyle.Top;
-            pnHeadFacemi.Location = new Point(0, 2);
+            pnHeadFacemi.Location = new Point(0, 3);
+            pnHeadFacemi.Margin = new Padding(4, 5, 4, 5);
             pnHeadFacemi.Name = "pnHeadFacemi";
-            pnHeadFacemi.Size = new Size(561, 42);
+            pnHeadFacemi.Size = new Size(803, 70);
             pnHeadFacemi.TabIndex = 1;
             // 
             // pnGrid
@@ -306,10 +314,11 @@
             pnGrid.Controls.Add(dgFacturas);
             pnGrid.Controls.Add(pnHeadFacemi);
             pnGrid.Dock = DockStyle.Fill;
-            pnGrid.Location = new Point(0, 28);
+            pnGrid.Location = new Point(0, 47);
+            pnGrid.Margin = new Padding(4, 5, 4, 5);
             pnGrid.Name = "pnGrid";
-            pnGrid.Padding = new Padding(0, 2, 0, 0);
-            pnGrid.Size = new Size(561, 389);
+            pnGrid.Padding = new Padding(0, 3, 0, 0);
+            pnGrid.Size = new Size(803, 649);
             pnGrid.TabIndex = 3;
             // 
             // label1
@@ -318,8 +327,9 @@
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 12F);
             label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(277, 27);
+            label1.Size = new Size(396, 45);
             label1.TabIndex = 0;
             label1.Text = "Proveedores";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -329,8 +339,9 @@
             pnHeadClientes.Controls.Add(label1);
             pnHeadClientes.Dock = DockStyle.Top;
             pnHeadClientes.Location = new Point(0, 0);
+            pnHeadClientes.Margin = new Padding(4, 5, 4, 5);
             pnHeadClientes.Name = "pnHeadClientes";
-            pnHeadClientes.Size = new Size(277, 27);
+            pnHeadClientes.Size = new Size(396, 45);
             pnHeadClientes.TabIndex = 0;
             // 
             // dgProveedores
@@ -340,9 +351,10 @@
             dgProveedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgProveedores.Dock = DockStyle.Fill;
             dgProveedores.Location = new Point(0, 0);
+            dgProveedores.Margin = new Padding(4, 5, 4, 5);
             dgProveedores.Name = "dgProveedores";
             dgProveedores.RowHeadersWidth = 51;
-            dgProveedores.Size = new Size(277, 412);
+            dgProveedores.Size = new Size(396, 688);
             dgProveedores.TabIndex = 0;
             dgProveedores.SelectionChanged += dgProveedores_SelectionChanged;
             // 
@@ -350,9 +362,10 @@
             // 
             pnClientes.Controls.Add(dgProveedores);
             pnClientes.Dock = DockStyle.Fill;
-            pnClientes.Location = new Point(0, 27);
+            pnClientes.Location = new Point(0, 45);
+            pnClientes.Margin = new Padding(4, 5, 4, 5);
             pnClientes.Name = "pnClientes";
-            pnClientes.Size = new Size(277, 412);
+            pnClientes.Size = new Size(396, 688);
             pnClientes.TabIndex = 1;
             // 
             // pnMenu
@@ -360,8 +373,9 @@
             pnMenu.Controls.Add(tsHerramientas);
             pnMenu.Dock = DockStyle.Top;
             pnMenu.Location = new Point(0, 0);
+            pnMenu.Margin = new Padding(4, 5, 4, 5);
             pnMenu.Name = "pnMenu";
-            pnMenu.Size = new Size(561, 28);
+            pnMenu.Size = new Size(803, 47);
             pnMenu.TabIndex = 1;
             // 
             // splitContainerFacemi
@@ -369,6 +383,7 @@
             splitContainerFacemi.BorderStyle = BorderStyle.FixedSingle;
             splitContainerFacemi.Dock = DockStyle.Fill;
             splitContainerFacemi.Location = new Point(0, 0);
+            splitContainerFacemi.Margin = new Padding(4, 5, 4, 5);
             splitContainerFacemi.Name = "splitContainerFacemi";
             // 
             // splitContainerFacemi.Panel1
@@ -383,17 +398,35 @@
             splitContainerFacemi.Panel2.Controls.Add(pnStatus);
             splitContainerFacemi.Panel2.Controls.Add(pnMenu);
             splitContainerFacemi.Panel2MinSize = 250;
-            splitContainerFacemi.Size = new Size(846, 441);
-            splitContainerFacemi.SplitterDistance = 279;
+            splitContainerFacemi.Size = new Size(1209, 735);
+            splitContainerFacemi.SplitterDistance = 398;
+            splitContainerFacemi.SplitterWidth = 6;
             splitContainerFacemi.TabIndex = 1;
+            // 
+            // tsLbTotalBase
+            // 
+            tsLbTotalBase.Name = "tsLbTotalBase";
+            tsLbTotalBase.Size = new Size(179, 29);
+            tsLbTotalBase.Text = "toolStripStatusLabel1";
+            // 
+            // tsLbTotalCuota
+            // 
+            tsLbTotalCuota.Name = "tsLbTotalCuota";
+            tsLbTotalCuota.Size = new Size(179, 29);
+            tsLbTotalCuota.Text = "toolStripStatusLabel1";
+            // 
+            // tsLbTotalRetencion
+            // 
+            tsLbTotalRetencion.Name = "tsLbTotalRetencion";
+            tsLbTotalRetencion.Size = new Size(179, 29);
+            tsLbTotalRetencion.Text = "toolStripStatusLabel1";
             // 
             // FrmBrowFacrec
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(846, 441);
+            ClientSize = new Size(1209, 735);
             Controls.Add(splitContainerFacemi);
-            Margin = new Padding(2, 2, 2, 2);
             Name = "FrmBrowFacrec";
             Text = "Facturas Recibidas";
             Load += FrmBrowFacrec_Load;
@@ -452,5 +485,8 @@
         private Panel pnClientes;
         private Panel pnMenu;
         private SplitContainer splitContainerFacemi;
+        private ToolStripStatusLabel tsLbTotalBase;
+        private ToolStripStatusLabel tsLbTotalCuota;
+        private ToolStripStatusLabel tsLbTotalRetencion;
     }
 }

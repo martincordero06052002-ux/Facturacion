@@ -43,6 +43,9 @@
             statusStrip1 = new StatusStrip();
             tsLbNumReg = new ToolStripStatusLabel();
             tsLbStatus = new ToolStripStatusLabel();
+            tsLbTotalBase = new ToolStripStatusLabel();
+            tsLbTotalCuota = new ToolStripStatusLabel();
+            tsLbTotalRetencion = new ToolStripStatusLabel();
             tsLbTotalImporte = new ToolStripStatusLabel();
             pnMenu = new Panel();
             tsHerramientas = new ToolStrip();
@@ -64,13 +67,9 @@
             tsMnInfClientes = new ToolStripMenuItem();
             tsMnInfFacSinRet = new ToolStripMenuItem();
             tsMnInfFacConRet = new ToolStripMenuItem();
-            toolStripButton1 = new ToolStripButton();
             toolStripSeparator5 = new ToolStripSeparator();
             toolStripLabel1 = new ToolStripLabel();
             tsComboYear = new ToolStripComboBox();
-            tsLbTotalBase = new ToolStripStatusLabel();
-            tsLbTotalCuota = new ToolStripStatusLabel();
-            tsLbTotalRetencion = new ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)splitContainerFacemi).BeginInit();
             splitContainerFacemi.Panel1.SuspendLayout();
             splitContainerFacemi.Panel2.SuspendLayout();
@@ -252,6 +251,24 @@
             tsLbStatus.Name = "tsLbStatus";
             tsLbStatus.Size = new Size(0, 31);
             // 
+            // tsLbTotalBase
+            // 
+            tsLbTotalBase.Name = "tsLbTotalBase";
+            tsLbTotalBase.Size = new Size(179, 29);
+            tsLbTotalBase.Text = "toolStripStatusLabel1";
+            // 
+            // tsLbTotalCuota
+            // 
+            tsLbTotalCuota.Name = "tsLbTotalCuota";
+            tsLbTotalCuota.Size = new Size(179, 29);
+            tsLbTotalCuota.Text = "toolStripStatusLabel1";
+            // 
+            // tsLbTotalRetencion
+            // 
+            tsLbTotalRetencion.Name = "tsLbTotalRetencion";
+            tsLbTotalRetencion.Size = new Size(179, 29);
+            tsLbTotalRetencion.Text = "toolStripStatusLabel1";
+            // 
             // tsLbTotalImporte
             // 
             tsLbTotalImporte.BorderSides = ToolStripStatusLabelBorderSides.Left;
@@ -272,7 +289,7 @@
             // tsHerramientas
             // 
             tsHerramientas.ImageScalingSize = new Size(20, 20);
-            tsHerramientas.Items.AddRange(new ToolStripItem[] { tsBtnNew, tsBtnEdit, toolStripSeparator1, tsBtnDelete, toolStripSeparator2, tsBtnFirst, tsBtnPrev, tsBtnNext, tsBtnLast, toolStripSeparator3, tsBtnExportCSV, tsBtnExportXML, toolStripSeparator4, tsBtnInformes, toolStripButton1, toolStripSeparator5, toolStripLabel1, tsComboYear });
+            tsHerramientas.Items.AddRange(new ToolStripItem[] { tsBtnNew, tsBtnEdit, toolStripSeparator1, tsBtnDelete, toolStripSeparator2, tsBtnFirst, tsBtnPrev, tsBtnNext, tsBtnLast, toolStripSeparator3, tsBtnExportCSV, tsBtnExportXML, toolStripSeparator4, tsBtnInformes, toolStripSeparator5, toolStripLabel1, tsComboYear });
             tsHerramientas.Location = new Point(0, 0);
             tsHerramientas.Name = "tsHerramientas";
             tsHerramientas.Padding = new Padding(0, 0, 3, 0);
@@ -435,16 +452,6 @@
             tsMnInfFacConRet.Text = "Factura seleccionada (Con retención)";
             tsMnInfFacConRet.Click += tsMnInfFacConRet_Click;
             // 
-            // toolStripButton1
-            // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(34, 28);
-            toolStripButton1.Text = "tsBtnDiseno";
-            toolStripButton1.Click += toolStripButton1_Click;
-            // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Margin = new Padding(5, 0, 5, 0);
@@ -464,24 +471,6 @@
             tsComboYear.Name = "tsComboYear";
             tsComboYear.Size = new Size(75, 33);
             tsComboYear.SelectedIndexChanged += tsComboYear_SelectedIndexChanged;
-            // 
-            // tsLbTotalBase
-            // 
-            tsLbTotalBase.Name = "tsLbTotalBase";
-            tsLbTotalBase.Size = new Size(179, 29);
-            tsLbTotalBase.Text = "toolStripStatusLabel1";
-            // 
-            // tsLbTotalCuota
-            // 
-            tsLbTotalCuota.Name = "tsLbTotalCuota";
-            tsLbTotalCuota.Size = new Size(179, 29);
-            tsLbTotalCuota.Text = "toolStripStatusLabel1";
-            // 
-            // tsLbTotalRetencion
-            // 
-            tsLbTotalRetencion.Name = "tsLbTotalRetencion";
-            tsLbTotalRetencion.Size = new Size(179, 29);
-            tsLbTotalRetencion.Text = "toolStripStatusLabel1";
             // 
             // FrmBrowFacemi
             // 
@@ -555,7 +544,6 @@
         private ToolStripMenuItem tsMnInfClientes;
         private ToolStripMenuItem tsMnInfFacSinRet;
         private ToolStripMenuItem tsMnInfFacConRet;
-        private ToolStripButton toolStripButton1;
         private ToolStripStatusLabel tsLbTotalBase;
         private ToolStripStatusLabel tsLbTotalCuota;
         private ToolStripStatusLabel tsLbTotalRetencion;

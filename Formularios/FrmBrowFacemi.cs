@@ -510,7 +510,6 @@ namespace FacturacionDAM.Formularios
                     reporte.Dictionary.Variables["VarFechaInicio"].ValueObject = frm.fechaInit.Value;
                     reporte.Dictionary.Variables["VarFechaFin"].ValueObject = frm.fechaFin.Value;
 
-                    // Cambia .Design() por .Show() cuando ya no quieras editar el diseño
                     reporte.Show();
                 }
                 else
@@ -607,18 +606,8 @@ namespace FacturacionDAM.Formularios
                 reporte.Dictionary.Databases.Add(new Stimulsoft.Report.Dictionary.StiMySqlDatabase("factuInf", conexionStimulsoft));
 
                 reporte.Dictionary.Variables["IdFactura"].ValueObject = idFactura;
-                reporte.Show();
+                reporte.Design();
             }
-        }
-        /// <summary>
-        /// BOTÓN EXTRA: Abrir el diseñador de informes vacío
-        /// </summary>
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            StiReport reporte = new StiReport();
-            reporte.Dictionary.Databases.Clear();
-            reporte.Dictionary.Databases.Add(new Stimulsoft.Report.Dictionary.StiMySqlDatabase("factuInf", Program.appDAM.LaConexion.ConnectionString));
-            reporte.Design();
         }
     }
 }

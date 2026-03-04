@@ -1,5 +1,7 @@
 using FacturacionDAM.Modelos;
 using System.Xml.Linq;
+using System;
+using System.Windows.Forms;
 
 namespace FacturacionDAM.Formularios
 {
@@ -14,7 +16,6 @@ namespace FacturacionDAM.Formularios
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-
             if (Program.appDAM.conectado)
                 Program.appDAM.DesconectarDB();
         }
@@ -46,7 +47,6 @@ namespace FacturacionDAM.Formularios
 #if DEBUG
             AbrirFormularioHijo<FrmDepuracion>();
 #endif
-
         }
 
         private void tsBtnEmisores_Click(object sender, EventArgs e)
@@ -64,18 +64,15 @@ namespace FacturacionDAM.Formularios
             AbrirFormularioHijo<FrmBrowConceptosFac>();
         }
 
-
         private void tiposDeIVAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormularioHijo<FrmBrowTiposIva>();
         }
 
-
         private void productosYServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormularioHijo<FrmBrowProductos>();
         }
-
 
         private void tsBtnVentas_Click(object sender, EventArgs e)
         {
@@ -83,7 +80,6 @@ namespace FacturacionDAM.Formularios
                 MessageBox.Show(
                     "No hay clientes registrados.\nDebe registrar al menos un cliente antes de gestionar facturas.",
                     "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             else
                 AbrirFormularioHijo<FrmBrowFacemi>();
         }
@@ -92,9 +88,8 @@ namespace FacturacionDAM.Formularios
         {
             CerrarFormulariosHijos();
             SeleccionarEmisor();
-            RefreshControles();
+            RefreshControles(); // ¡Ahora sí funcionará bien al cambiar el emisor!
         }
-
 
         /// <summary>
         /// Evento que ordena las ventanas Mdi hijas en cascada.
@@ -107,19 +102,14 @@ namespace FacturacionDAM.Formularios
         /// <summary>
         /// Evento que ordena en mosaico horizontal las ventanas Mdi hijas.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void mosaicoHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.TileHorizontal);
-
         }
 
         /// <summary>
         /// Evento que ordena en mosaico vertical las ventanas Mdi hijas.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void mosaicoVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.TileVertical);
@@ -129,7 +119,6 @@ namespace FacturacionDAM.Formularios
         {
             CerrarFormulariosHijos();
         }
-
 
         /*************** MÉTODOS PRIVADOS *******************/
 
@@ -144,7 +133,6 @@ namespace FacturacionDAM.Formularios
 
                     Program.appDAM.estadoApp =
                         (Program.appDAM.emisor == null) ? EstadoApp.ConectadoSinEmisor : EstadoApp.Conectado;
-
                 }
             }
         }
@@ -152,10 +140,8 @@ namespace FacturacionDAM.Formularios
         private void CerrarFormulariosHijos()
         {
             foreach (Form frm in this.MdiChildren)
-                //if (frm is not FrmDepuracion)
                 frm.Close();
         }
-
 
         /// <summary>
         /// Abre un formulario hijo MDI del tipo indicado. 
@@ -184,35 +170,40 @@ namespace FacturacionDAM.Formularios
             nuevoFrm.Show();
         }
 
-
+        // ====== AQUÍ ESTÁ LA MAGIA CORREGIDA ======
         private void RefreshToolBar()
         {
-            if (Program.appDAM.estadoApp != EstadoApp.Conectado)
-            {
-                foreach (ToolStripItem item in tsToolMain.Items)
-                {
-                    if (item is ToolStripButton)
-                    {
-                        switch (item.Name)
-                        {
-                            case "tsBtnConfig":
-                                item.Enabled = true;
-                                break;
-                            case "tsBtnSalir":
-                                item.Enabled = true;
-                                break;
-                            case "tsBtnEmisores":
-                                item.Enabled = (Program.appDAM.estadoApp == EstadoApp.ConectadoSinEmisor) ? true : false;
-                                break;
-                            default:
-                                item.Enabled = false;
-                                break;
+            // Verificamos si realmente tenemos un emisor seleccionado
+            bool hayEmisor = (Program.appDAM.estadoApp == EstadoApp.Conectado);
 
-                        }
+            foreach (ToolStripItem item in tsToolMain.Items)
+            {
+                if (item is ToolStripButton)
+                {
+                    switch (item.Name)
+                    {
+                        case "tsBtnConfig":
+                        case "tsBtnSalir":
+                            // Configuración y salir siempre están activos
+                            item.Enabled = true;
+                            break;
+
+                        case "tsBtnEmisores":
+                            // Emisores lo dejamos activo siempre que haya conexión (con o sin emisor)
+                            item.Enabled = (Program.appDAM.estadoApp == EstadoApp.Conectado ||
+                                            Program.appDAM.estadoApp == EstadoApp.ConectadoSinEmisor);
+                            break;
+
+                        default:
+                            // Todos los demás botones (Ventas, Compras, Clientes, etc.) 
+                            // se encienden SI hay emisor, y se apagan SI NO hay emisor.
+                            item.Enabled = hayEmisor;
+                            break;
                     }
                 }
             }
         }
+        // ==========================================
 
         private void RefreshStatusBar()
         {
